@@ -1,0 +1,10 @@
+<h1>Log in</h1>
+
+
+<form action="/sessions/create" method="post" class="form-horizontal">
+	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+	<input type="email" name="user[email]" placeholder="Email" class="form-control">
+	<input type="password"  name="user[password]" placeholder="Password" class="form-control">
+	<button type="submit" value="log in" class="btn btn-success">Log in</button>
+</form>
+

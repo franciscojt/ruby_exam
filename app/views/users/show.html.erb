@@ -1,0 +1,38 @@
+<p>Name: <%= @user.name%></p>
+
+<%= link_to "Edit Profile", user_edit_path(@user.id) %>
+
+<form action="/secrets/" method="post">
+	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+	<div class="form-group">
+	<input type="hidden" name="secret[user_id]" value="<%=@user.id%>">
+	<textarea type="text" name="secret[content]" placeholder="New Secret" class="form-control"></textarea>
+	</div>
+	<button type="submit" value="create" class="btn btn-success">Create Secret</button>
+</form>
+<p>Below are the secrets</p>
+<table class= "table">
+	<thead>
+		<tr>
+			<th>Secret</th>
+			<th>Likes</th>
+			<th>Acction - Likes</th>
+			<th>Delete</th>
+			</tr>
+	</thead>
+	<tbody>
+<% @secrets.each do |secret| %>
+	<tr>
+	<td><%= secret.content%></td>
+	<td><%= Secret.find(secret.id).users_liked.count%> likes</td>
+	
+	<td><form action="/secrets/<%= secret.id %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+	<button type="submit" value="Delete Account" class="btn btn-danger btn-sm">Delete</button>
+</form>	</td>
+	</tr>
+<% end %>
+	</tbody>
+</table>
+

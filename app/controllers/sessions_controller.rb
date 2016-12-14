@@ -1,24 +1,22 @@
 class SessionsController < ApplicationController
-	
-	def new
-		
-	end
 	def create
-		user = User.find_by(email: session_params[:email])
-		if user && user.authenticate(session_params[:password])
-			session[:id] = user.id
-			redirect_to user_show_path(user.id)
+		user = User.find_by(email: user_params[:email])
+		if user && user.authenticate(user_params[:password])
+			session[:user_id] = user.id
+			redirect_to user_path(user.id)
 		else
-			flash[:errors] = ["invalid email or password"]
-			redirect_to sessions_new_path
+			flash[:errors] = ["Invalid Credentials"]
+			redirect_to :back
 		end
 	end
 	def destroy
 		session.clear
-		redirect_to sessions_new_path
+		redirect_to root_path
 	end
 	private
-		def session_params
+		def user_params
 			params.require(:user).permit(:email, :password)
 		end
 end
+
+

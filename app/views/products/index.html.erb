@@ -1,0 +1,34 @@
+<div class = "row">
+	<div class = "col-md-11 text-right"> <%= link_to "Dashboard", user_path(@user) %> | <%= link_to "Log Out", session_path(current_user), method: :delete %></div>
+<h1>Welcome <%= @user.first_name%></h1>
+<div class="row">
+
+
+	
+</div>
+<div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Product</th>
+				<th>Seller</th>
+				<th>Date Posted</th>
+				<th>Amount</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<% @products.each do |product| %>
+			<% if product.bought == false %>
+				<tr>
+					<td><%= product.name %></td>
+					<td><%=product.user.first_name%> <%=product.user.last_name%></td>
+					<td><%= product.created_at %></td>
+					<td>$ <%= product.price %></td>
+					<td><%= link_to "Buy", product_path(product), method: :put %></td>
+				</tr> 
+				
+					<%end%>
+				<%end%>
+	</table>
+</div>
+</div>

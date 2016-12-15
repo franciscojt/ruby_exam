@@ -40,6 +40,6 @@ gem 'spring',        group: :development
 
 gem 'hirb'
 gem 'faker'
-gem 'rails-footnotes', '~> 4.0'
+#gem 'rails-footnotes', '~> 4.0'
 gem 'bootstrap-sass'
 

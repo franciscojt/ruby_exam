@@ -31,7 +31,7 @@
 			<% if product.bought == false %>
 				<tr>
 					<td><%= product.name %></td>
-					<td><%= product.created_at %></td>
+					<td><%= product.created_at.strftime("%B %d, %Y") %></td>
 					<td>$ <%= product.price %></td>
 					<td><%= link_to "Delete", product_path(product), method: :delete %></td>
 				</tr> 
@@ -55,7 +55,7 @@
 				<tr>
 					<td><%= product.name%></td>
 					<td><%= sale.first_name %> <%= sale.last_name %></td>
-					<td><%=sale.updated_at %></td>
+					<td><%=sale.updated_at.strftime("%B %d, %Y") %></td>
 					<td>$ <%= product.price %></td>
 					
 				</tr> 
@@ -80,7 +80,7 @@
 				<tr>
 					<td><%= buy.name%></td>
 					<td><%= buy.user.first_name %> <%= buy.user.last_name %></td>
-					<td><%= buy.updated_at %></td>
+					<td><%= buy.updated_at.strftime("%B %d, %Y") %></td>
 					<td>$ <%= buy.price %></td>
 					
 				</tr> 

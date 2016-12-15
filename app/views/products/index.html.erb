@@ -22,9 +22,11 @@
 				<tr>
 					<td><%= product.name %></td>
 					<td><%=product.user.first_name%> <%=product.user.last_name%></td>
-					<td><%= product.created_at %></td>
+					<td><%= product.created_at.strftime("%B %d, %Y") %></td>
 					<td>$ <%= product.price %></td>
+					<% if product.user_id != current_user.id %>
 					<td><%= link_to "Buy", product_path(product), method: :put %></td>
+					<%end%>
 				</tr> 
 				
 					<%end%>

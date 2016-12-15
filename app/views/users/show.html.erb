@@ -44,8 +44,8 @@
 		<thead>
 			<tr>
 				<th>Product</th>
-				<th>Date Bought</th>
 				<th>Buyer</th>
+				<th>Date Sold</th>				
 				<th>Amount</th>
 			</tr>
 		</thead>
@@ -55,7 +55,7 @@
 				<tr>
 					<td><%= product.name%></td>
 					<td><%= sale.first_name %> <%= sale.last_name %></td>
-					<td><%=sale.created_at %></td>
+					<td><%=sale.updated_at %></td>
 					<td>$ <%= product.price %></td>
 					
 				</tr> 
@@ -70,8 +70,8 @@
 		<thead>
 			<tr>
 				<th>Product</th>
-				<th>Date Bought</th>
 				<th>Buyer</th>
+				<th>Date Bought</th>				
 				<th>Amount</th>
 			</tr>
 		</thead>
@@ -80,7 +80,7 @@
 				<tr>
 					<td><%= buy.name%></td>
 					<td><%= buy.user.first_name %> <%= buy.user.last_name %></td>
-					<td><%= buy.created_at %></td>
+					<td><%= buy.updated_at %></td>
 					<td>$ <%= buy.price %></td>
 					
 				</tr> 
